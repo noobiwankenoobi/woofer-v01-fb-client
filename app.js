@@ -13,8 +13,10 @@ woofForm.addEventListener('submit', (event) => {
     const body = woofFormData.get('content');
     // woof is an object with name a content being inserted
     const woof = { userHandle, body };
+    // reset woof form
+    woofForm.reset();
 
-    // Send POST request to API
+    // POST request to API
     fetch(API_URL + 'woof', {
         method: 'POST',
         body: JSON.stringify(woof),
@@ -27,12 +29,13 @@ woofForm.addEventListener('submit', (event) => {
         .catch(err => console.error(err))
 })
 
+
+// Get Woofs Button - Temporary
 getWoofsBtn.addEventListener('click', () => {
     getWoofs();
 })
 
-
-
+// GET Woofs
 function getWoofs() {
     fetch(API_URL + 'woofs', {
         method: 'GET',
@@ -41,5 +44,37 @@ function getWoofs() {
         }
     })
         .then(response => response.json())
-        .then(data => console.log(data));
+        .then(data => renderAllWoofs(data));
 }
+
+function clearWoofs() {
+    console.log("clearWoofs running")
+}
+
+function renderNewWoof() {
+    console.log("renderNewWoof running")
+}
+
+function renderAllWoofs(woofsArray) {
+    woofsArray.forEach((woof) => {
+        const woofsContainer = document.querySelector('.woofs-container');
+        const woofDiv = document.createElement('div');
+        const woofUserDiv = document.createElement('div');
+        const woofBodyDiv = document.createElement('div');
+        const woofUserText = document.createElement('h5');
+        const woofBodyText = document.createElement('h3');
+        woofUserText.innerText = "🐶 " + woof.userHandle + " says:";
+        woofBodyText.innerText = woof.body;
+        woofUserDiv.appendChild(woofUserText);
+        woofBodyDiv.appendChild(woofBodyText);
+        woofDiv.appendChild(woofUserDiv);
+        woofDiv.appendChild(woofBodyDiv);
+        woofUserDiv.classList.add("woof-user-div");
+        woofBodyDiv.classList.add("woof-body-div");
+        woofDiv.classList.add("woof-div");
+        woofsContainer.appendChild(woofDiv)
+    })
+
+}
+
+

@@ -1,3 +1,23 @@
+:root {
+    font-size: 12px;
+    margin: 0;
+    padding: 0;
+    --text-primary: black;
+    --text-secondary: white;
+    --transition-speed: 200ms;
+    --bg-primary: ;
+    --bg-secondary: ;
+  }
+
+  *{
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    box-sizing: border-box;
+    border: none;
+  }
+
+
 .header {
     display: flex;
     justify-content: center;
@@ -27,4 +47,33 @@
 .get-woofs {
     display: flex;
     justify-content: center;
+}
+
+.woofs-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.woof-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 15rem;
+    width: 50%;
+    margin: 5px 0px;
+    border: 1px solid black;
+}
+
+.woof-user.div {
+    text-align: center;
+    margin: 0.5rem;
+}
+
+.woof-body.div {
+    text-align: center;
+    margin: 0.5rem;
 }
