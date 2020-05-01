@@ -44,8 +44,10 @@ function postWoof(event) {
             renderNewestWoof()
         })
         .catch(err => console.error(err))
-
 }
+
+// TO DO:
+// Handle failure of woof post, what to do with localcreatedwoof, what to do with the form, etc
 
 ////////////////
 // GET Woofs //
