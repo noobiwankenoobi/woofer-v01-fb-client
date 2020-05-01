@@ -29,6 +29,8 @@
 }
 
 .woof-form {
+    display: flex;
+    flex-direction: column;
     width: 60rem;
     border: 1px solid grey;
     border-radius: 5px;
@@ -80,4 +82,24 @@
 .woof-body.div {
     text-align: center;
     margin: 0.5rem;
+}
+
+@media screen and (max-width: 768px) {
+    .woof-div {
+        width: 80vw;
+        height: 10rem;
+    }
+
+    .woof-form {
+        width: 80vw;
+    }
+
+    #post-woof-btn {
+        float: none;
+        margin: auto;
+    }
+
+
+
+
 }
